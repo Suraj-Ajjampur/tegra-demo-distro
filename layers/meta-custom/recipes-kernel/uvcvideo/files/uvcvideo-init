@@ -1,0 +1,16 @@
+#!/bin/sh
+# Author: Suraj Ajjampur
+
+case "$1" in
+start)
+    echo "Load uvcvideo module, exit on failure"
+    modprobe uvcvideo || exit 1
+    echo "uvcvideo module loaded successfully"
+    ;;
+
+stop)
+    echo "Stop uvcvideo module"
+    modprobe -r uvcvideo || exit 1
+    echo "uvcvideo module has been unloaded"
+    ;;
+esac
